@@ -34,6 +34,7 @@ class KurikulumConttroller extends Controller
             'kode' => 'required',
             'nama' => 'required',
             'tahun' => 'required|numeric|digits:4',
+            'keterangan' => 'nullable',
         ]);
 
         Kurikulum::create($validated);
@@ -67,6 +68,7 @@ class KurikulumConttroller extends Controller
             'kode' => 'required',
             'nama' => 'required',
             'tahun' => 'required|numeric|digits:4',
+            'keterangan' => 'nullable',
         ]);
 
         $kurikulum = Kurikulum::findOrFail($id);
