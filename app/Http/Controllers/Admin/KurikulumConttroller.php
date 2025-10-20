@@ -13,7 +13,7 @@ class KurikulumConttroller extends Controller
      */
     public function index()
     {
-        $kurikulum= Kurikulum::all();
+        $kurikulums= Kurikulum::all();
         return view('admin.kurikulum.index', compact('kurikulums'));
     }
     
@@ -30,7 +30,14 @@ class KurikulumConttroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'kode' => 'required',
+            'nama' => 'required',
+            'tahun' => 'required|numeric|digits:4',
+        ]);
+
+        Kurikulum::create($validated);
+        return redirect()->route('kurikulum.index')->with('success', 'Kurikulum created successfully.');
     }
 
     /**
@@ -38,7 +45,8 @@ class KurikulumConttroller extends Controller
      */
     public function show(string $id)
     {
-        //
+        $kurikulum = Kurikulum::findOrFail($id);
+        return view('admin.kurikulum.show', compact('kurikulum'));
     }
 
     /**
@@ -46,7 +54,8 @@ class KurikulumConttroller extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $kurikulum = Kurikulum::findOrFail($id);
+        return view('admin.kurikulum.edit', compact('kurikulum'));
     }
 
     /**
@@ -54,7 +63,16 @@ class KurikulumConttroller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'kode' => 'required',
+            'nama' => 'required',
+            'tahun' => 'required|numeric|digits:4',
+        ]);
+
+        $kurikulum = Kurikulum::findOrFail($id);
+        $kurikulum->update($validated);
+        
+        return redirect()->route('kurikulum.index')->with('success', 'Kurikulum updated successfully.');
     }
 
     /**
@@ -62,6 +80,9 @@ class KurikulumConttroller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $kurikulum = Kurikulum::findOrFail($id);
+        $kurikulum->delete();
+        
+        return redirect()->route('kurikulum.index')->with('success', 'Kurikulum deleted successfully.');
     }
 }
