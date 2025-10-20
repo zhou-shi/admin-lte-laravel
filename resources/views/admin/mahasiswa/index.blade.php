@@ -115,8 +115,11 @@ $(document).ready(function() {
                     // 4. Tambahkan baris baru ke DataTable
                     let rowNode = table.row.add([
                         mahasiswa.id,
-                        mahasiswa.kode_mahasiswa,
+                        mahasiswa.nim,
                         mahasiswa.nama_mahasiswa,
+                        mahasiswa.jenis_kelamin,
+                        mahasiswa.angkatan,
+                        mahasiswa.prodi.nama_prodi,
                         actionButtons
                     ]).draw(false).node(); // draw(false) agar tidak reset ke halaman 1
 
