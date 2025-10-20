@@ -321,6 +321,32 @@ return [
             'can' => 'manage-blog',
         ],
         [
+            'text'    => 'Master Data',
+            'icon'    => 'fas fa-fw fa-database',
+            'submenu' => [
+                [
+                    'text' => 'Kurikulum',
+                    'url'  => 'kurikulum',
+                    'icon' => 'fas fa-fw fa-book',
+                ],
+                [
+                    'text' => 'Jurusan',
+                    'url'  => 'jurusan',
+                    'icon' => 'fas fa-fw fa-university', // Ganti ikon sesuai selera
+                ],
+                [
+                    'text' => 'Program Studi',
+                    'url'  => 'prodi',
+                    'icon' => 'fas fa-fw fa-graduation-cap', // Ganti ikon sesuai selera
+                ],
+            ],
+        ],
+        [
+            'text' => 'Mahasiswa',
+            'url'  => 'mahasiswa',
+            'icon' => 'fas fa-fw fa-users', // Ganti ikon sesuai selera
+        ],
+        [
             'text' => 'pages',
             'url' => 'admin/pages',
             'icon' => 'far fa-fw fa-file',
@@ -332,11 +358,6 @@ return [
             'text' => 'profile',
             'url' => 'profile',
             'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'kurikulum',
-            'url' => 'kurikulum',
-            'icon' => 'fas fa-graduation-cap',
         ],
         [
             'text' => 'change_password',
