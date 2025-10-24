@@ -20,15 +20,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     
-    Route::resource('jurusan', JurusanController::class);
     Route::get('jurusan/load-more', [JurusanController::class, 'loadMore'])->name('jurusan.loadMore');
+    Route::resource('jurusan', JurusanController::class);
     
     Route::resource('prodi', ProdiController::class);
 
+    Route::get('kurikulum/load-more', [MahasiswaController::class, 'loadMore'])->name('kurikulum.loadMore');
     Route::resource('kurikulum', KurikulumConttroller::class);
 
-    Route::resource('mahasiswa', MahasiswaController::class);
     Route::get('mahasiswa/load-more', [MahasiswaController::class, 'loadMore'])->name('mahasiswa.loadMore');
+    Route::resource('mahasiswa', MahasiswaController::class);
 });
 
 require __DIR__.'/auth.php';

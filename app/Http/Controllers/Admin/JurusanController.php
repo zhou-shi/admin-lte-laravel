@@ -12,7 +12,7 @@ class JurusanController extends Controller
     public function index()
     {
         // Ambil 8 data pertama saja
-        $jurusans = Jurusan::take(8)->get();
+        $jurusans = Jurusan::take(5)->get();
 
         // Ambil total data untuk logika tombol
         $total_jurusan = Jurusan::count();
@@ -82,7 +82,7 @@ class JurusanController extends Controller
     public function loadMore(Request $request)
     {
         $offset = $request->input('offset', 0); // Ambil offset (data yang sudah ditampilkan)
-        $limit = 8; // Ambil 8 data baru
+        $limit = 5; // Ambil 8 data baru
 
         $jurusans = Jurusan::skip($offset)->take($limit)->get();
 
